@@ -12,15 +12,25 @@ public class ClothesPage extends BaseTest {
         PageFactory.initElements(driver, this);
 
     }
+     //CONST
 
+    String TITLE = "Clothes";
+    String CLOTHES = "https://autodemo.testoneo.com/en/3-clothes";
 
     // locators
-    @FindBy(xpath = "//a[@href='https://autodemo.testoneo.com/en/5-women']")
+    @FindBy(xpath = "//ul[@class='category-sub-menu']/li[2]/a")
     public WebElement womenPage;
 
      //actions
 
-    public void goToWomen() { womenPage.click(); }
+    public void goToWomen() {
 
+        womenPage.click(); }
+
+    public void openClothes() {
+        driver.get(CLOTHES);
     }
+}
+
+
 

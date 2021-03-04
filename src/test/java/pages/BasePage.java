@@ -16,7 +16,7 @@ public class BasePage extends BaseTest {
 
     // actions
 
-    public void goTo() {
+    public void openMain() {
         driver.get(MAIN);
     }
 }
