@@ -34,7 +34,7 @@ public class WomenPage extends BaseTest {
     @FindBy(xpath = "//button[@data-button-action='add-to-cart']")
     public WebElement addToCart;
 
-    @FindBy (className = "cart-products-count")
+    @FindBy (css = "p[class='cart-products-count']")
     public WebElement productsCount;
 
 
@@ -69,10 +69,11 @@ public class WomenPage extends BaseTest {
         quantity.sendKeys("2");
         addToCart.click();
     }
-    public void checkProductsCount() {
-
-        String quantityInfoText = productsCount.getText().replaceAll("//D+", "");
-        Integer quantityInfoNumber = Integer.parseInt(quantityInfoText);
+    public void checkProductsCount() throws InterruptedException {
+        Thread.sleep(3000); // zamiana na explicit i jakis sensowny warunek
+        String quantityInfoText = productsCount.getText();
+        System.out.println(quantityInfoText);
+        Integer quantityInfoNumber = Integer.parseInt(quantityInfoText.replaceAll("\\D",""));
         Assertions.assertEquals(2, quantityInfoNumber);
         //Assertions.assertEquals(true, (productsCount.getText()).contains("2"));
     }
